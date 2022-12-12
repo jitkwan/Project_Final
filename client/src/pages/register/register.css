@@ -1,0 +1,38 @@
+.login-container {
+    max-width: 500px;
+}
+
+.main-login {
+    background: rgb(170,221,255);
+    background: linear-gradient(45deg, rgba(170,221,255,1) 38%, rgba(60,240,159,1) 100%);
+    min-height: 100vh;
+    padding-top: 1.2rem;
+}
+
+.login-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.login-header-text {
+    margin-right: auto;
+}
+
+.login-img {
+    width: 13rem;
+}
+
+.login-bottom-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        max-width: 350px;
+    }
+}
