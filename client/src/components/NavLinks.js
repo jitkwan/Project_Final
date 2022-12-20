@@ -12,6 +12,7 @@ const NavLinks = ({ toggleSidebar }) => {
             to={path}
             key={id}
             onClick={toggleSidebar}
+            // { isActive } is provided by NavLink library
             className={({ isActive }) =>
               isActive ? 'nav-link active' : 'nav-link'
             }

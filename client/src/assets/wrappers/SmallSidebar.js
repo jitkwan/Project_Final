@@ -4,6 +4,9 @@ const Wrapper = styled.aside`
   @media (min-width: 992px) {
     display: none;
   }
+  .sm-sidebar-logo {
+    width: 7rem;
+  }
   .sidebar-container {
     position: fixed;
     inset: 0;
@@ -29,6 +32,7 @@ const Wrapper = styled.aside`
     display: flex;
     align-items: center;
     flex-direction: column;
+    font-size: 1.2rem;
   }
   .close-btn {
     position: absolute;

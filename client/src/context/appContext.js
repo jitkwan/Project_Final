@@ -52,7 +52,7 @@ const AppProvider = ({ children }) => {
     const addUserToLocalStorage = ({ user, token, location}) => {
         localStorage.setItem('user', JSON.stringify(user))
         localStorage.setItem('token', token)
-        localStorage.setItem('location', token)
+        localStorage.setItem('location', location)
     }
 
     const removeUserFromLocalStorage = () => {
@@ -137,10 +137,14 @@ const AppProvider = ({ children }) => {
     const logoutUser = () => {
         dispatch({ type: LOGOUT_USER })
         removeUserFromLocalStorage()
-      }
+    }
+
+    const updateUser = async (currentUser) => {
+      console.log(currentUser)
+    }
 
     return (
-        <AppContext.Provider value={{...state, displayAlert, setupUser, registerUser, loginUser, logoutUser, toggleSidebar}}>
+        <AppContext.Provider value={{...state, displayAlert, setupUser, registerUser, loginUser, logoutUser, updateUser, toggleSidebar}}>
             { children }
         </AppContext.Provider>
     )

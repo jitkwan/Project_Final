@@ -4,10 +4,9 @@ import TextInput from './TextInput'
 import Navbar from './Navbar'
 import SmallSidebar from './SmallSidebar'
 import BigSidebar from './BigSidebar'
+import FormRow from './FormRow'
 
 
 
 
-
-
-export { Logo, Alert, TextInput, Navbar, SmallSidebar, BigSidebar }
+export { Logo, Alert, TextInput, FormRow, Navbar, SmallSidebar, BigSidebar }
