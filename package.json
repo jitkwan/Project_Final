@@ -27,7 +27,7 @@
     "install-client":"cd client && npm install",
     "server": "nodemon -L server --ignore client",
     "client": "npm start --prefix client",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \" npm run client\""
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "eslintConfig": {
     "extends": [
