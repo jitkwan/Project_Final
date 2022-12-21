@@ -14,7 +14,17 @@ import {
     LOGOUT_USER,
     UPDATE_USER_BEGIN,
     UPDATE_USER_SUCCESS,
-    UPDATE_USER_ERROR
+    UPDATE_USER_ERROR,
+    HANDLE_CHANGE,
+    CLEAR_VALUES,
+    CREATE_ACTIVITY_BEGIN,
+    CREATE_ACTIVITY_SUCCESS,
+    CREATE_ACTIVITY_ERROR,
+    GET_ACTIVITIES_BEGIN,
+    GET_ACTIVITIES_SUCCESS,
+    SET_EDIT_ACTIVITY,
+    DELETE_ACTIVITY_BEGIN,
+    DELETE_ACTIVITY_ERROR
 } from "./action"
 
 import { initialState } from './appContext'
@@ -28,7 +38,7 @@ const reducer = (state, action) => {
             alertType: 'danger', 
             alertText: 'Please provide all values!' 
         }
-        console.log('DISPLAY_ALERT is fired')
+        //console.log('DISPLAY_ALERT is fired')
     }
 
     if (action.type === CLEAR_ALERT) {
@@ -170,6 +180,76 @@ const reducer = (state, action) => {
         }
     }
 
+    if (action.type === HANDLE_CHANGE) {
+        return { ...state, [action.payload.name]: action.payload.value }; //งง ทำไมต้องเป็น array
+      }
+  
+      if (action.type === CLEAR_VALUES) {
+        const initialState = {
+          isEditing: false,
+          editActivityId: '',
+          Activityname: '',
+          ActivityType: 'Run',
+          Description:'',
+          Date:'',
+          Duration:'',
+        };
+        return { ...state, ...initialState };
+      }
+  
+      if (action.type === CREATE_ACTIVITY_BEGIN) {
+        return { ...state, isLoading: true };
+      }
+      if (action.type === CREATE_ACTIVITY_SUCCESS) {
+        return {
+          ...state,
+          isLoading: false,
+          showAlert: true,
+          alertType: 'success',
+          alertText: 'New ACTIVITY Created!',
+        };
+      }
+      if (action.type === CREATE_ACTIVITY_ERROR) {
+        return {
+          ...state,
+          isLoading: false,
+          showAlert: true,
+          alertType: 'danger',
+          alertText: action.payload.msg,
+        };
+      }
+  
+      if (action.type === GET_ACTIVITIES_BEGIN) {
+        return { ...state, isLoading: true, showAlert: false };
+      }
+      if (action.type === GET_ACTIVITIES_SUCCESS) {
+        return {
+          ...state,
+          isLoading: false,
+          activities: action.payload.activities,
+          totalActivities: action.payload.totalActivities,
+          numOfPages: action.payload.numOfPages,
+        };
+      }
+  
+      if (action.type === SET_EDIT_ACTIVITY) {
+        const activity = state.activities.find((activity) => activity._id === action.payload.id);
+        const { _id, Activityname, ActivityType, Description, Duration, Date } = activity;
+        return {
+          ...state,
+          isEditing: true,
+          editActivityId: _id,
+          Activityname,
+          ActivityType,
+          Description,
+          Duration,
+          Date,
+        };
+      }
+
+      if (action.type === DELETE_ACTIVITY_BEGIN) {
+        return { ...state, isLoading: true };
+      }
 
     throw new Error(`no such action: ${action.type}`)
 }
