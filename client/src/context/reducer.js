@@ -23,6 +23,9 @@ import {
     GET_ACTIVITIES_BEGIN,
     GET_ACTIVITIES_SUCCESS,
     SET_EDIT_ACTIVITY,
+    EDIT_ACTIVITY_BEGIN,
+    EDIT_ACTIVITY_SUCCESS,
+    EDIT_ACTIVITY_ERROR,
     DELETE_ACTIVITY_BEGIN,
     DELETE_ACTIVITY_ERROR
 } from "./action"
@@ -251,6 +254,27 @@ const reducer = (state, action) => {
         return { ...state, isLoading: true };
       }
 
+      if (action.type === EDIT_ACTIVITY_BEGIN) {
+        return { ...state, isLoading: true };
+      }
+      if (action.type === EDIT_ACTIVITY_SUCCESS) {
+        return {
+          ...state,
+          isLoading: false,
+          showAlert: true,
+          alertType: 'success',
+          alertText: 'Activity Updated!',
+        };
+      }
+      if (action.type === EDIT_ACTIVITY_ERROR) {
+        return {
+          ...state,
+          isLoading: false,
+          showAlert: true,
+          alertType: 'danger',
+          alertText: action.payload.msg,
+        };
+      }
     throw new Error(`no such action: ${action.type}`)
 }
 

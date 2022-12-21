@@ -1,6 +1,10 @@
-const AllActivity = () => {
+import { ActivitiesContainer} from '../../components';
+const AllActivities = () => {
   return (
-    <h1>All Activities Page</h1>
-  )
-}
-export default AllActivity
+    <>
+      <ActivitiesContainer />
+    </>
+  );
+};
+
+export default AllActivities;

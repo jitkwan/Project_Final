@@ -1,12 +1,12 @@
 import 'express-async-errors'
 import express from 'express'
-const app = express()
 import dotenv from 'dotenv'
-dotenv.config()
 import morgan from 'morgan';
+import connectDB from './db/connect.js'
+
 
 // db and authenticateUser
-import connectDB from './db/connect.js'
+
 
 //  routers
 import authRouter from './routes/authRoutes.js'
@@ -16,6 +16,11 @@ import activityRouter from './routes/activityRoutes.js'
 import notFoundMiddleware from './middleware/not-found.js'
 import errorHandlerMiddleware from './middleware/error-handler.js'
 import authenticateUser from './middleware/auth.js';
+
+const app = express()
+
+dotenv.config()
+
 
 if (process.env.NODE_ENV !== 'production') {
     app.use(morgan('dev'));
@@ -29,7 +34,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1/auth', authRouter)
-app.use('/api/v1/activity', authenticateUser, activityRouter)
+app.use('/api/v1/activities', authenticateUser, activityRouter)
 
 
 app.use(notFoundMiddleware)

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Register, Landing, Error, ProtectedRoute } from './pages'
+import { Register, Landing, Error, /*ProtectedRoute*/ } from './pages'
 import { AddActivity, AllActivity, Profile, Stats, SharedLayout } from './pages/dashboard'
 
 function App() {
@@ -9,9 +9,9 @@ function App() {
         <Route 
           path='/' 
           element={
-            <ProtectedRoute>
+            //<ProtectedRoute>
               <SharedLayout />
-            </ProtectedRoute>
+            //</ProtectedRoute>
           }
         >
           <Route index element={<AllActivity />} />

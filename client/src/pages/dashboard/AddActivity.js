@@ -35,14 +35,24 @@ const AddActivity = () => {
 
   const handleActivityInput = (e) => {
     const name = e.target.name;
-    const value = e.target.value;
+    let value = e.target.value;
+    if (name === 'Date') {
+      value = new Date(value).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      });
+    }
     handleChange({ name, value });
   };
+
+  const thisDate = new window.Date()
+  const today = `${thisDate.getFullYear()}-${thisDate.getMonth() + 1}-${thisDate.getDate()}`
 
   return (
     <Wrapper>
       <form className='form'>
-        <h3>{isEditing ? 'edit job' : 'add job'} </h3>
+        <h3>{isEditing ? 'edit activity' : 'add activity'} </h3>
         {showAlert && <Alert />}
 
         {/* Activityname */}
@@ -70,18 +80,19 @@ const AddActivity = () => {
           />
           {/* Duration */}
           <FormRow
-            type='text'
-            labelText='Duration'
+            type='number'
+            labelText='Duration (min.)'
             name='Duration'
             value={Duration}
             handleChange={handleActivityInput}
           />
           {/* Date */}
           <FormRow
-            type='text'
+            type='date'
             labelText='Date'
             name='Date'
             value={Date}
+            min={today}
             handleChange={handleActivityInput}
           />
           

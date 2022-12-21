@@ -33,6 +33,7 @@ const updateActivity = async(req,res) => {  //20
     }
 
     checkPermissions(req.user, activity.createdBy);
+    
     const updatedActivity = await Activity.findOneAndUpdate({ _id: activityId }, req.body, {
         new: true,
         runValidators: true,

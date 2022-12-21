@@ -1,9 +1,10 @@
 import express from 'express'
+import { createActivity, getAllActivities, updateActivity, deleteActivity, showStats } from '../controllers/activityController.js'
 const router = express.Router()
 
-import { createActivity, getAllActivity, updateActivity, deleteActivity, showStats } from '../controllers/activityController.js'
 
-router.route('/').post(createActivity).get(getAllActivity)
+
+router.route('/').post(createActivity).get(getAllActivities)
 // remember about id
 router.route('/stats').get(showStats)
 router.route('/:id').delete(deleteActivity).patch(updateActivity)

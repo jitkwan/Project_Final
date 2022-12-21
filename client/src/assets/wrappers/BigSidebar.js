@@ -25,7 +25,6 @@ const Wrapper = styled.aside`
       display: flex;
       align-items: center;
       padding-left: 2rem;
-
     }
     .nav-links {
       padding-top: 2rem;
