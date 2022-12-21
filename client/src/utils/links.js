@@ -15,12 +15,12 @@ const links = [
     path: 'add-activity', 
     icon: <PostAddTwoToneIcon /> 
   },
-  { 
-    id: 2, 
-    text: 'stats', 
-    path: 'stats', 
-    icon: <PostAddTwoToneIcon /> 
- },
+//   { 
+//     id: 2, 
+//     text: 'stats', 
+//     path: 'stats', 
+//     icon: <PostAddTwoToneIcon /> 
+//  },
   { id: 3, 
     text: 'profile', 
     path: 'profile', 

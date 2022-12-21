@@ -1,8 +1,9 @@
 //import moment from 'moment';
 
-import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
+import { FaLocationArrow, FaBriefcase, FaCalendarAlt, FaRegClock } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useAppContext } from '../context/appContext';
+import moment from "moment";
 import Wrapper from '../assets/wrappers/Activity';
 import ActivityInfo from './ActivityInfo';
 import walkingImg from '../assets/images/walking.svg'
@@ -46,7 +47,7 @@ const Activity = ({
   // let date = moment(createdAt);
   // Date = Date.format('MMM Do, YYYY');
   
-  // let myDate = `${Date.slice(8,10)}/${Date.slice(5,7)}/${Date.slice(0,14)}`
+  let myDate = moment(Date).utc().format('DD-MM-YYYY')
 
   return (
     <Wrapper>
@@ -61,8 +62,9 @@ const Activity = ({
       <div className='content'>
         <div className='content-center'>
           <ActivityInfo icon={<FaLocationArrow />} text={Description} />
-          {<ActivityInfo icon={<FaCalendarAlt />} text={Date} /> }
+          <ActivityInfo icon={<FaCalendarAlt />} text={myDate} /> 
           <ActivityInfo icon={<FaBriefcase />} text={ActivityType} />
+          <ActivityInfo icon={<FaRegClock />} text={`${Duration} minutes`} />
         </div>
 
         {/* content center later */}

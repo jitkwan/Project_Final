@@ -36,13 +36,13 @@ const AddActivity = () => {
   const handleActivityInput = (e) => {
     const name = e.target.name;
     let value = e.target.value;
-    if (name === 'Date') {
-      value = new Date(value).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric'
-      });
-    }
+    // if (name === 'Date') {
+    //   value = new Date(value).toLocaleDateString('en-US', {
+    //     month: 'long',
+    //     day: 'numeric',
+    //     year: 'numeric'
+    //   });
+    // }
     handleChange({ name, value });
   };
 
