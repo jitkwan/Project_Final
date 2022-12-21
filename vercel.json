@@ -1,0 +1,6 @@
+{
+  "builds": [
+    { "src": "package.json", "use": "npm run client" },
+    { "src": "package.json", "use": "npm run server" }
+  ]
+}
