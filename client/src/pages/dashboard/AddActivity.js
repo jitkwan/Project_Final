@@ -60,12 +60,14 @@ const AddActivity = () => {
           <FormRow
             type='text'
             name='Activityname'
+            labelText='Activity Name'
             value={Activityname}
             handleChange={handleActivityInput}
           />
           {/* ActivityType */}
           <FormRowSelect
             name='ActivityType'
+            labelText='Activity Type'
             value={ActivityType}
             handleChange={handleActivityInput}
             list={ActivityTypeOptions}

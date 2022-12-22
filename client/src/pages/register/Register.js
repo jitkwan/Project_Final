@@ -19,6 +19,7 @@ const initialState = {
 }
 
 const Register = () => {
+ 
   const navigate = useNavigate()
   const [values, setValues] = useState(initialState)
   const [viewer, setViewer] = useState(false);
